@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Signature;
 use App\User;
 use Session;
 use Illuminate\Http\Request;
@@ -8,9 +9,9 @@ use Input;
 use Auth;
 use Validator;
 use Redirect;
-use Hash;
-use App\Signature;
-use DB;
+
+
+
 
 use App\Http\Requests;
 
@@ -99,10 +100,10 @@ class MainController extends Controller
     
     public function signed(Request $request){
         
-        DB::table('signatures')->insert([
-            ['title' => Auth::user()->title, 'first_name' => Auth::user()->first_name, 'last_name' => Auth::user()->last_name, 'subject' => Auth::user()->subject, 'signed_at' => Auth::user()->signed_at]
+        $input = $request->all();
+        
+        Signature::create($input);
             
-]);
         
         Session::flash('flash_message', 'You have Signed in for today. Have a nice day. Please logout!!');
         
