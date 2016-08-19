@@ -38,9 +38,10 @@
 
             <div class="col-md-9">
                 <div class="jumbotron">
+                    <div class="container">
                 <div class="row">
                     
-                    <div class="col-sm-7">
+                    <div class="col-md-7">
                 
                     {!! Form::open(['url'=>'signed'])!!}
                     
@@ -51,12 +52,14 @@
                      {!! Form::hidden('last_name', Auth::user()->last_name) !!}
                     
                     {!! Form::hidden('subject', Auth::user()->subject) !!}
+      
                     
-                    {!!Form::submit('Click Here To Append Your Signature', ['class' => 'btn btn-success']) !!}
+                    {!!Form::submit('Click Here To Append Your Signature', ['class' => 'btn btn-success', 'name' => 'submitBtn', 'onClick' =>'this.form.submit();this.disabled=true;' ]) !!}
                     
+                        
                     {!!Form::close()!!}
                     </div>
-                        <div class="col-sm-5">
+                        <div class="col-md-5">
                 @if(Session::has('flash_message'))
                 <div class="alert alert-success">
                 {{ Session::get('flash_message') }}
@@ -66,7 +69,7 @@
                     </div>
             </div>
         </div>
-           
+            </div>
     </div>
 
 </div>

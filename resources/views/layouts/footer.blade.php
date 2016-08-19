@@ -41,5 +41,3 @@
 {{ Html::script("js/jquery.min.js") }}
 <!-- Bootstrap -->
 {{ Html::script("js/bootstrap.min.js") }}
-<!-- Main JS -->
-{{ Html::script("js/main.js") }}

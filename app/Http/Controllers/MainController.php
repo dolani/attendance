@@ -10,6 +10,7 @@ use Validator;
 use Redirect;
 use Hash;
 use App\Signature;
+use DB;
 
 use App\Http\Requests;
 
@@ -86,7 +87,7 @@ class MainController extends Controller
             
             return Redirect::to('signature');
         }else {
-            return redirect()->back();
+            return redirect()->back()->withErrors("Title or Password is Incorrect!");
         }
        
         }
@@ -97,14 +98,16 @@ class MainController extends Controller
     }
     
     public function signed(Request $request){
-        $input = $request->all();
         
-        Signature::create($input);
-        
+        DB::table('signatures')->insert([
+            ['title' => Auth::user()->title, 'first_name' => Auth::user()->first_name, 'last_name' => Auth::user()->last_name, 'subject' => Auth::user()->subject, 'signed_at' => Auth::user()->signed_at]
+            
+]);
         
         Session::flash('flash_message', 'You have Signed in for today. Have a nice day. Please logout!!');
         
-        return redirect()->back();
+        return view('users.success');
+    
 
         
     }

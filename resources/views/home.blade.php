@@ -14,7 +14,7 @@
                 <div class="col-md-8 col-md-offset-2">
                     <div class="fh5co-hero-wrap">
                         <div class="fh5co-hero-intro text-center">
-                            <h1 class="fh5co-lead"><span class="quo">&ldquo;</span>PLACE SCHOOLS IMAGE/TEXT HERE <span class="quo">&rdquo;</span></h1>
+                            <h1 class="fh5co-lead"><span class="quo">&ldquo;</span>PLACE SCHOOLS' IMAGE/TEXT HERE <span class="quo">&rdquo;</span></h1>
                         </div>
                     </div>
                 </div>
